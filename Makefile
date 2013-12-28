@@ -1,6 +1,6 @@
 TWEAK_NAME = NoChineseSNS
 NoChineseSNS_OBJCC_FILES = Tweak.mm
-SYSROOT=/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk
+SYSROOT=/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk
 NoChineseSNS_CFLAGS = -F$(SYSROOT)/System/Library/CoreServices
 NoChineseSNS_FRAMEWORKS = UIKit Foundation StoreKit
 NoChineseSNS_PRIVATE_FRAMEWORKS = UIKit Foundation Preferences PhotoLibrary
@@ -12,8 +12,8 @@ include theos/makefiles/common.mk
 include theos/makefiles/tweak.mk
 
 sync: stage
-	rsync -z _/Library/MobileSubstrate/DynamicLibraries/* root@192.168.3.3:/Library/MobileSubstrate/DynamicLibraries/
-	ssh root@192.168.3.3 killall SpringBoard
+	rsync -z _/Library/MobileSubstrate/DynamicLibraries/* root@192.168.1.134:/Library/MobileSubstrate/DynamicLibraries/
+	ssh root@192.168.1.134 killall SpringBoard
 	
 sync2: stage
 	rsync -z _/Library/MobileSubstrate/DynamicLibraries/* root@192.168.0.7:/Library/MobileSubstrate/DynamicLibraries/
