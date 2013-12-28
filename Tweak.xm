@@ -3,6 +3,13 @@
 #import <UIKit/UIKit.h>
 #import <Firmware.h>
 
+@interface PSViewController : UIViewController
+@end
+
+@interface PSListController : PSViewController
+- (void)removeSpecifierID:(id)arg1;
+@end
+
 @interface PLYoukuActivity
 - (BOOL)_canPerformWithSuppliedActivityItems:(id)arg1;
 @end
@@ -67,6 +74,7 @@
 {
   return NO;
 }
+%end
 %end
 
 //----------------------------------------------------------------------
