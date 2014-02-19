@@ -86,7 +86,8 @@
   NSMutableArray *clean = [NSMutableArray arrayWithArray:array];
 
   [clean addObject:UIActivityTypePostToWeibo];
-  [clean addObject:UIActivityTypePostToTencentWeibo];
+  if (kCFCoreFoundationVersionNumber >= kCFCoreFoundationVersionNumber_iOS_7_0)
+    [clean addObject:UIActivityTypePostToTencentWeibo];
   //NSArray *clean2 = [NSArray arrayWithArray:clean];
   return clean; 
 }
