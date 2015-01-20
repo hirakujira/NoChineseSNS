@@ -31,12 +31,19 @@
 %hook PSListController
 -(void)viewDidLoad
 {
-	[self removeSpecifierID:@"WEIBO"];
-	[self removeSpecifierID:@"SINAWEIBO"];
-  [self removeSpecifierID:@"TENCENT_WEIBO"];
-  [self removeSpecifierID:@"TENCENTWEIBO"];
-  //NSArray* list = MSHookIvar<NSArray *>(self, "_specifiers");
-  //NSLog(@"%@",list);
+	// [self removeSpecifierID:@"WEIBO"];
+	// [self removeSpecifierID:@"SINAWEIBO"];
+  // [self removeSpecifierID:@"TENCENT_WEIBO"];
+  // [self removeSpecifierID:@"TENCENTWEIBO"];
+  NSArray* list = MSHookIvar<NSArray *>(self, "_specifiers");
+  if (![self isKindOfClass:%c(SearchSettingsController)])
+  {
+    [self removeSpecifierID:@"WEIBO"];
+    [self removeSpecifierID:@"SINAWEIBO"];
+    [self removeSpecifierID:@"TENCENT_WEIBO"];
+    [self removeSpecifierID:@"TENCENTWEIBO"];
+  }
+  // NSLog(@"%@",list);
 	%orig;
 }
 %end

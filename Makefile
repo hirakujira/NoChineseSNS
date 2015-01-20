@@ -11,8 +11,8 @@ include theos/makefiles/common.mk
 include theos/makefiles/tweak.mk
 
 sync: stage
-	rsync -z _/Library/MobileSubstrate/DynamicLibraries/* root@10.0.1.13:/Library/MobileSubstrate/DynamicLibraries/
-	ssh root@10.0.1.13 killall Preferences
+	rsync -e "ssh -p 2222" -z _/Library/MobileSubstrate/DynamicLibraries/* root@127.0.0.1:/Library/MobileSubstrate/DynamicLibraries/
+	ssh root@127.0.0.1 -p 2222 killall Preferences
 	
 sync2: stage
 	rsync -z _/Library/MobileSubstrate/DynamicLibraries/* root@192.168.0.7:/Library/MobileSubstrate/DynamicLibraries/
